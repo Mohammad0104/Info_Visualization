@@ -1,0 +1,230 @@
+---
+title: "Global Inflation Data Visualizations"
+subtitle:        "Mohammad"
+output: html_notebook
+---
+The data set used for this assignment is the Global Inflation Data taken from Kaggle.com
+By examining this data, people can gain insights into the complex factors that impact the economy and make informed decisions about investments, policies.
+
+The Figure 1 below represents the inflation across countries with IMF code starting with '1'. The horizontal bar chart shows inflation in year 2008. Each bar represents a country, and the length of the bar corresponds to its inflation rate during that year The bars are color-coded by the type of inflation with categorical breakdown:
+(Energy Consumer Price Inflation 
+Food Consumer Price Inflation
+Headline Consumer Price Inflation 
+Official Core Consumer Price Inflation 
+Producer Price Inflation data)
+It allows us to see at a glance which countries had the highest and lowest inflation rates along with the division of categories 
+and how they compare to each other. May be used to analyse a country's economic growth as each type of inflation requires a different policy change/update.
+
+```{r,message=FALSE,warning=FALSE,echo = FALSE}
+library(tidyverse) # Load tidyverse library for data manipulation and visualization
+library(ggplot2)
+library(RColorBrewer)
+
+# Read the dataset into a data frame
+inflation <- read.csv("C:/Users/moha/OneDrive/Documents/WINTER 2023/INFO VIZ/Global Dataset of Inflation.csv")
+
+#inflation
+inflation_b <- filter(inflation, str_detect(IMF.Country.Code, "^1")  )
+
+food_inflate_avg <- mutate(inflation_b, avg_5_year = (X2006+X2007+X2008+X2009+X2010) / 5)
+
+filter_deflation <- filter(food_inflate_avg, X2008>= 0 )
+my_labels <- c('Energy','Food', 'Headline', 'Official','Producer')
+
+# Create a bar chart comparing inflation rates of the filtered countries
+ggplot(filter_deflation, aes(x = Country, y = X2008, fill = Series.Name)) +
+  geom_col() +
+  scale_fill_brewer(palette = "Set2", labels = my_labels)+
+  labs(title = "Global Inflation Rates (2008)",
+       subtitle = " Top IMF Countries ",
+       x = "Country", y = "Inflation Rate(%)", fill="Inflation type") +
+  theme(plot.title = element_text(size = 15, face = "bold", hjust = 0.5, vjust = 0.5, colour = "grey26"),
+        plot.subtitle = element_text(size = 10, face = "bold.italic", hjust = 0.6, colour = "grey26", margin = margin(0,0,0.0,0,'cm')),
+        plot.title.position = "panel",
+        axis.text.x = element_text( vjust = 0.5, hjust = 0.5,color = "darkgreen"),
+        axis.text.y = element_text( vjust = 0.5, hjust = 0.5,face="italic",colour = "orange4"),
+        axis.ticks = element_line(linewidth = NA),
+        panel.background = element_rect(fill = "white"),
+        legend.position = c(0.85, 0.72),
+        legend.background = element_rect(colour = 'lightpink', linewidth = 1,linetype = "dotted" ),
+        panel.margin = margin(2, 0, 0, 0, "cm"),
+        plot.background = element_rect(colour = "lightblue", linewidth = 2),
+        legend.key.size = unit(0.2, 'cm'),)+
+  coord_flip()
+
+
+
+```
+                                                            Figure 1
+                                                            
+This is Figure 2 using same Global Inflation Dataset. I have used a choropleth map diagram to represent Food consumer Price inflation of countries with IMF code starting with '5' in year 2020. The map uses color to represent the magnitude of the inflation rate, with darker shades of red indicating higher 
+inflation rates and lighter shades indicating lower rates. The map also shows the outlines of the countries to help identify their locations.
+and highlights the regions where inflation rates were particularly high or low, which could be useful for identifying trends or
+patterns in inflation across regions or continents.
+
+```{r,message=FALSE,warning=FALSE,echo = FALSE,fig.cap="Figure 2"}
+library(dplyr)
+library(tidyverse)
+library(stringr)
+library(ggplot2)
+library(maps)
+library(mapdata)
+
+# Read the dataset into a data frame
+inflation <- read.csv("C:/Users/moha/OneDrive/Documents/WINTER 2023/INFO VIZ/Global Dataset of Inflation.csv")
+
+
+colnames(inflation)[56] ="Year_2020"
+inflation_b <- filter(inflation, str_detect(IMF.Country.Code, "^5"), Year_2020 >= -5, Series.Name=="Food Consumer Price Inflation")
+inflation_b_group <- group_by(inflation_b,Year_2020)
+
+
+map_data <- map_data("world")
+inflation_map <- left_join(inflation_b_group, map_data, by = c("Country" = "region"))
+
+ggplot(inflation_map, aes(x=long, y=lat, group = group, fill = Year_2020)) +
+  geom_polygon(color="white")+
+  scale_fill_gradient(low = "#fec4c1", high = "#bb0900", na.value = "white") +
+  labs(title = "Food Consumer Price Inflation (2020)",
+       fill = "Inflation(%)",
+       subtitle = "Mid IMF countries",
+       )+
+  theme_void() +
+  coord_map() +
+  theme(plot.title = element_text(family = "Arial", size = 13, hjust = 0.5,face = 'bold', colour = "white"),
+        plot.title.position = "plot",
+        plot.subtitle = element_text(family = "Arial", size = 10, hjust = 0.7,face = 'bold.italic', colour = "white"),
+        plot.background = element_rect(fill = "gray28",colour = "#bb0900", linewidth = 2),
+        legend.text = element_text(size = 8, color="white"),
+        legend.title = element_text(size = 10, face = 'bold',color = "white", hjust = 0.5), # align legend title
+        legend.position = c(0.45, -0.08), 
+        legend.direction = "horizontal",
+        legend.key.height = unit(0.4,"cm"),
+        legend.key.width = unit(0.4,"cm"),
+        legend.box.spacing = unit(0.5, "cm"), # adjust legend box spacing
+        legend.title.align = 0.5, # align legend title and key
+        legend.box = "horizontal",
+        plot.margin = margin(0.5, 1, 1.7, 1, "cm"),
+        )
+
+
+
+```
+                                                          Figure 2
+                                                          
+This is Figure 3 & 4 using Global Inflation dataset and also World Country GDP dataset from Kaggle.com, which I joined by 'Country Code'. This bubble chart(an extension of scatter plot with 3 variables) represents countries with IMF code starting with '1', x-axis shows the countries while the y-axis represents the Producer Price inflation rate in year 2021. The bubbles' size represents the GDP, and the bubbles' color represents the magnitude of the GDP (Figure 3) & GDP/capita (Figure 4), with lighter colors indicating lower values and darker colors indicating higher values. 
+
+This diagram answers the question, "What is the inflation rate of the top International Monetary Fund (IMF) countries in 2021, and how does it relate to their GDP or GDP per Capita?" By plotting the inflation rate of different countries against their GDP, we can visualize any relationship or patterns between these two variables. The size of the bubble provides an additional dimension of information, allowing us to compare the countries' GDP magnitudes. By using a gradient color scale, we can also distinguish between countries with high and low GDPs and see how they relate to the inflation rate. 
+
+Figure 4 even though looks the same as figure 3 but answers the question more indepth. It relates a countries' purchasing power parity with the amount of inflation, which is a more accurate indicator of the countrys' economic condition.
+
+This visualization can be useful for identifying any outliers, trends, or correlations in the data and understanding how different countries' economic factors affect their inflation rates.
+
+
+```{r,message=FALSE,warning=FALSE,echo = FALSE}
+library(dplyr)
+library(tidyverse)
+library(stringr)
+library(ggplot2)
+library(hrbrthemes)
+
+
+# Read the dataset into a data frame
+inflation <- read.csv("C:/Users/saffa/OneDrive/Documents/WINTER 2023/INFO VIZ/Global Dataset of Inflation.csv")
+GDP <- read.csv("C:/Users/saffa/OneDrive/Documents/WINTER 2023/INFO VIZ/world_country_gdp_usd.csv")
+
+data <- merge(inflation,GDP,by="Country.Code")
+
+filter_country <- filter(data, str_detect(IMF.Country.Code, "^1"),Series.Name=="Producer Price Inflation",year==2021, X2021>=10  )
+
+
+#filter_country
+
+par(mfrow = c(1, 2))
+ggplot(filter_country, aes(x = Country, y = X2021, size = GDP_USD, color= GDP_USD)) +
+  geom_point(alpha = 0.8) +
+  scale_size(range = c(2, 15)) +
+  scale_radius(limits = c(2, NA), range = c(2, 15),labels = scales::dollar_format(scale = 1e-9)) +
+  scale_color_gradient(low = "#8dd9cc", high = "#1164B5",labels = scales::dollar_format(scale = 1e-9)) +
+  labs(title = "Producer Price Inflation (2021)",
+       subtitle = "Top IMF countries - GDP",
+       x = "Country",
+       y = "Inflation Rate(%)",
+       size = "GDP (1e9 USD)",
+       color = "GDP (1e9 USD)") +
+  theme_void() +
+  coord_flip()+
+  theme(legend.position = "right",
+        legend.title.align = 0.5,
+        legend.key.height = unit(0.5, 'cm'),
+        legend.key.width = unit(0.5, 'cm'),
+        legend.box.spacing = unit(0.5,'cm'),
+        legend.background = element_rect(color = "white", fill = "white"),
+        legend.text = element_text(size = 9),
+        legend.title = element_text(size = 10),
+        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 10),
+        axis.title.y = element_text(margin = margin(0, 0.5, 0, 0, "cm"), angle = 90),
+        axis.text.y = element_text(face = "italic", size = 10, colour = "darkblue"),
+        axis.title = element_text(size = 12),
+        plot.background = element_rect(fill = "white", color = '#1164B5', linewidth = 2),
+        panel.background = element_rect(fill = "white", color="white"),
+        panel.grid.major.y = element_line(colour = "gray80", size = 0.5),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        plot.title = element_text(face = 'bold.italic', hjust = 1, size = 16),
+        plot.subtitle = element_text(hjust = 1, size = 11, color = "gray40",margin = margin(0,0,0.3,0,'cm')),
+        plot.margin = margin(0.2, 1, 0.3, 1, "cm"),
+        panel.margin = margin(1, 1, 1, 1, "cm"))
+
+ggplot(filter_country, aes(x = Country, y = X2021, size = GDP_per_capita_USD, color= GDP_per_capita_USD)) +
+  geom_point(alpha = 0.8) +
+  #scale_size_continuous(range = c(2, 15), name = "GDP Size (1e-9)", labels = scales::dollar_format(scale = 1e-9)) +
+  scale_size(range = c(0, 15)) +
+  scale_radius(limits = c(1, NA), range = c(2, 15),labels = scales::dollar_format(scale = 1e-3)) +
+  scale_color_gradient(low = "#e8bcf0", high = "#46005f",labels = scales::dollar_format(scale = 1e-3)) +
+  labs(title = "Producer Price Inflation (2021)",
+       subtitle = "Top IMF countries - GDP/capita",
+       source = "Fig 3",
+       x = "Country",
+       y = "Inflation Rate(%)",
+       size = "GDP/capita (1e3 USD)",
+       color = "GDP/capita (1e3 USD)") +
+  theme_void() +
+  coord_flip()+
+  theme(legend.position = "right",
+        legend.title.align = 1,
+        legend.key.height = unit(0.5, 'cm'),
+        legend.key.width = unit(0.5, 'cm'),
+        legend.background = element_rect(color = "white", fill = "white"),
+        legend.text = element_text(size = 9),
+        legend.text.align = 1,
+        legend.title = element_text(size = 10),
+        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 10),
+        axis.title.y = element_text(margin = margin(0, 0.5, 0, 0, "cm"), angle = 90),
+        axis.text.y = element_text(face = "italic", size = 10, colour = "#32005c"),
+        axis.title = element_text(size = 12),
+        axis.title.x = element_text( margin(0.5,0,0.5,0,'cm')),
+        plot.background = element_rect(fill = "white", color = '#46005f', linewidth = 2),
+        panel.background = element_rect(fill = "white", color="white"),
+        panel.grid.major.y = element_line(colour = "gray80", size = 0.5),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        plot.title = element_text(face = 'bold.italic', hjust = 1, size = 16),
+        plot.subtitle = element_text(hjust = 1, size = 11, color = "gray40", margin = margin(0,0,0.3,0,'cm')),
+        plot.margin = margin(0.2, 0.5, 0.3, 1, "cm"),
+        panel.margin = margin(1, 3, 1, 1, "cm"))
+
+
+
+
+
+
+```
+                                                              Figure 3 & 4
+
+
+
+References: 
+https://www.kaggle.com/datasets/belayethossainds/global-inflation-dataset-212-country-19702022
+https://www.kaggle.com/datasets/tmishinev/world-country-gdp-19602021
+
