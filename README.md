@@ -31,8 +31,16 @@ This project utilizes the Global Inflation Data from Kaggle.com to offer insight
 
 - To provide a visual analysis of inflation trends worldwide, aiding stakeholders in understanding economic conditions and making informed decisions.
 - To illustrate the impact of different economic variables on inflation, thereby facilitating a deeper understanding of economic dynamics.
-### Graphs and Visual
+### Visualizations & Key Insights
 <img width="1275" height="1650" alt="Final_Assignment_page-0001" src="https://github.com/user-attachments/assets/3cb2440d-abc3-4cde-a091-0b215dbf49a0" />
+<img width="1275" height="1650" alt="Final_Assignment_page-0002" src="https://github.com/user-attachments/assets/ecf6bd5c-61d4-4f02-8587-c7ca5ca6a9af" />
+<img width="1275" height="1650" alt="Final_Assignment_page-0003" src="https://github.com/user-attachments/assets/0ffa54f8-7a9c-4c99-a49c-11492b438a5e" />
+<img width="1275" height="1650" alt="Final_Assignment_page-0004" src="https://github.com/user-attachments/assets/67e84b86-a69c-4570-ac07-aa8eb9c82519" />
+<img width="1275" height="1650" alt="Final_Assignment_page-0005" src="https://github.com/user-attachments/assets/b0f8cbed-3d08-4de5-8a32-fd47e920234e" />
+
+
+
+
 
 ### References
 
