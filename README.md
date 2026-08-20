@@ -15,7 +15,6 @@ The main goal was to turn a large economic dataset into clear visualizations tha
 A horizontal bar chart showing different inflation measures for selected countries with IMF codes starting with **"1"**. The chart includes measures such as **Energy, Food, Headline, Official Core, and Producer Price Inflation**.
 
 This visualization makes it easier to compare inflation levels between countries and see how different types of inflation affected their economies.
-Visualization: <br>
 <img width="1275" height="1650" alt="Final_Assignment_page-0001" src="https://github.com/user-attachments/assets/0a667b1f-e9a0-4a1f-aa9c-77cbebe3f177" /> <br>
 
 ### Figure 2: Food Consumer Price Inflation — 2020
@@ -24,11 +23,17 @@ A choropleth map showing **Food Consumer Price Inflation** for selected countrie
 
 Different shades represent different inflation levels, making it easier to identify countries and regions with higher or lower food price inflation.
 
+<img width="1275" height="1650" alt="Final_Assignment_page-0002" src="https://github.com/user-attachments/assets/4d0fd267-4436-489c-939a-84325aa59202" /> <br>
+
 ### Figures 3 & 4: Inflation Rate vs. GDP and GDP Per Capita — 2021
 
 These bubble charts explore the relationship between **Producer Price Inflation** and two economic measures: **GDP** and **GDP per capita**.
 
 The size and colour of the bubbles help show differences between countries and make it easier to identify patterns, differences, and possible outliers.
+
+<img width="1275" height="1650" alt="Final_Assignment_page-0003" src="https://github.com/user-attachments/assets/0a1357a9-c38a-449a-a18c-acf2abc5029a" />
+<img width="1275" height="1650" alt="Final_Assignment_page-0004" src="https://github.com/user-attachments/assets/dee35611-a4f0-4ac7-b038-911ccab0e714" />
+
 
 ## 🔎 Key Insights
 
