@@ -1,49 +1,77 @@
-## Global Inflation Data Visualizations
+# Global Inflation Data Analysis & Visualizations
 
-**Mohammad - 100755461**
+**Mohammad — 100755461**
 
-### Project Overview
+## 📌 Project Overview
 
-This project utilizes the Global Inflation Data from Kaggle.com to offer insights into economic factors influencing global economies. By examining inflation rates across various countries, the visualizations aid in understanding the implications on investments and policy-making. These insights are crucial for stakeholders to make informed decisions.
+This project looks at global inflation data from Kaggle to better understand how inflation varies between countries and how it relates to important economic factors such as GDP and GDP per capita.
 
-### Visualizations
+The main goal was to turn a large economic dataset into clear visualizations that make it easier to compare countries, identify patterns, and understand differences in inflation. These visualizations can be useful for understanding economic conditions and supporting better decision-making.
 
-- **Figure 1: Inflation Rate by Country (2008)**
-  - A horizontal bar chart depicting inflation rates in countries with IMF codes starting with '1'. It categorizes inflation into types like Energy, Food, Headline, Official Core, and Producer Price Inflation. This visualization aids in comparing the inflation rates and understanding economic conditions across these nations.
+## 📊 Visualizations
 
-- **Figure 2: Food Consumer Price Inflation Choropleth Map (2020)**
-  - Uses a choropleth map to represent food consumer price inflation in countries with IMF codes starting with '5'. The map employs shades of red to indicate the magnitude of inflation rates, providing a visual representation of regional economic conditions.
+### Figure 1: Inflation Rate by Country — 2008
 
-- **Figures 3 & 4: Relationship Between Inflation Rate and GDP/GDP Per Capita (2021)**
-  - Bubble charts that explore the relationship between Producer Price inflation rate and GDP or GDP per capita for countries with IMF codes starting with '1'. These visualizations highlight the economic stature and inflation rates through bubble size and color gradients, offering insights into how GDP levels correlate with inflation.
+A horizontal bar chart showing different inflation measures for selected countries with IMF codes starting with **"1"**. The chart includes measures such as **Energy, Food, Headline, Official Core, and Producer Price Inflation**.
 
-### Core Competencies Demonstrated
+This visualization makes it easier to compare inflation levels between countries and see how different types of inflation affected their economies.
 
-- **Data Analysis and Visualization:** Demonstrated the ability to transform complex datasets into comprehensible visual formats that facilitate easier interpretation and analysis of global economic trends.
-- **Critical Thinking and Insight Generation:** Developed visualizations that not only depict data but also provide foundational insights for economic analysis, helping to identify trends, outliers, and correlations.
+### Figure 2: Food Consumer Price Inflation — 2020
 
-### Technologies Leveraged
+A choropleth map showing **Food Consumer Price Inflation** for selected countries with IMF codes starting with **"5"**.
 
-- **Data Visualization Tools:** Employed advanced visualization tools to create dynamic and informative charts and maps that effectively communicate the intricacies of economic data.
-- **Data Sources:** Utilized comprehensive datasets from Kaggle, which include detailed records of global inflation and GDP metrics across various years.
+Different shades represent different inflation levels, making it easier to identify countries and regions with higher or lower food price inflation.
 
-### Project Goals
+### Figures 3 & 4: Inflation Rate vs. GDP and GDP Per Capita — 2021
 
-- To provide a visual analysis of inflation trends worldwide, aiding stakeholders in understanding economic conditions and making informed decisions.
-- To illustrate the impact of different economic variables on inflation, thereby facilitating a deeper understanding of economic dynamics.
-### Visualizations & Key Insights
-<img width="1275" height="1650" alt="Final_Assignment_page-0001" src="https://github.com/user-attachments/assets/3cb2440d-abc3-4cde-a091-0b215dbf49a0" />
-<img width="1275" height="1650" alt="Final_Assignment_page-0002" src="https://github.com/user-attachments/assets/ecf6bd5c-61d4-4f02-8587-c7ca5ca6a9af" />
-<img width="1275" height="1650" alt="Final_Assignment_page-0003" src="https://github.com/user-attachments/assets/0ffa54f8-7a9c-4c99-a49c-11492b438a5e" />
-<img width="1275" height="1650" alt="Final_Assignment_page-0004" src="https://github.com/user-attachments/assets/67e84b86-a69c-4570-ac07-aa8eb9c82519" />
-<img width="1275" height="1650" alt="Final_Assignment_page-0005" src="https://github.com/user-attachments/assets/b0f8cbed-3d08-4de5-8a32-fd47e920234e" />
+These bubble charts explore the relationship between **Producer Price Inflation** and two economic measures: **GDP** and **GDP per capita**.
 
+The size and colour of the bubbles help show differences between countries and make it easier to identify patterns, differences, and possible outliers.
 
+## 🔎 Key Insights
 
+* Inflation rates can vary significantly between countries and across different categories.
+* Food inflation provides a useful view of how changes in prices can affect consumers and different regions.
+* Comparing inflation with GDP and GDP per capita helps provide more economic context when looking at inflation rates.
+* Visualizations make it easier to identify patterns and unusual values that may not be obvious from the raw data alone.
 
+## 💡 Skills Demonstrated
 
-### References
+* Data analysis and exploration
+* Data visualization
+* Economic data interpretation
+* Identifying trends and outliers
+* Comparing multiple economic indicators
+* Presenting complex data in a simple and understandable way
 
-- Global Inflation Dataset, 1970-2022: [Kaggle](https://www.kaggle.com/datasets/belayethossainds/global-inflation-dataset-212-country-19702022)
-- World Country GDP, 1960-2021: [Kaggle](https://www.kaggle.com/datasets/tmishinev/world-country-gdp-19602021)
+## 🛠️ Technologies & Data Sources
 
+**Tools & Technologies**
+
+* Data visualization tools
+* Data analysis techniques
+* Kaggle datasets
+
+**Datasets**
+
+* Global Inflation Dataset (1970–2022)
+* World Country GDP Dataset (1960–2021)
+
+## 🎯 Project Goals
+
+The main goals of this project were to:
+
+* Analyze global inflation trends across different countries.
+* Compare different types of inflation.
+* Explore the relationship between inflation and economic indicators.
+* Present the results through clear and easy-to-understand visualizations.
+* Build practical data analysis and visualization skills using real-world economic data.
+
+## 📷 Visualizations
+
+The complete visualizations and analysis are included in the images below.
+
+## 📚 References
+
+* **Global Inflation Dataset, 1970–2022:** [Kaggle](https://www.kaggle.com/datasets/belayethossainds/global-inflation-dataset-212-country-19702022?utm_source=chatgpt.com)
+* **World Country GDP, 1960–2021:** [Kaggle](https://www.kaggle.com/datasets/tmishinev/world-country-gdp-19602021?utm_source=chatgpt.com)
