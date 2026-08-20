@@ -16,7 +16,7 @@ A horizontal bar chart showing different inflation measures for selected countri
 
 This visualization makes it easier to compare inflation levels between countries and see how different types of inflation affected their economies.
 Visualization: <br>
-<img width="1275" height="1650" alt="Final_Assignment_page-0001" src="https://github.com/user-attachments/assets/0a667b1f-e9a0-4a1f-aa9c-77cbebe3f177" />
+<img width="1275" height="1650" alt="Final_Assignment_page-0001" src="https://github.com/user-attachments/assets/0a667b1f-e9a0-4a1f-aa9c-77cbebe3f177" /> <br>
 
 ### Figure 2: Food Consumer Price Inflation — 2020
 
